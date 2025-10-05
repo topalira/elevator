@@ -12,8 +12,9 @@ public:
 	Elevator(int ground, int top);
 	void onOff();
 	void setPosition(int pos);
-	int GetPosition();
+	int GetPosition()const;
 	void Call();
+	void Print()const;
 };
 Elevator::Elevator(int ground, int top)
 {
@@ -32,8 +33,9 @@ void Elevator::setPosition(int position)
 {
 	this->position = position;
 }
-int Elevator::GetPosition()
+int Elevator::GetPosition()const
 {
+	/*this->position = 1000;*///error
 	return position;
 }
 void Elevator::Call()
@@ -51,9 +53,15 @@ void Elevator::Call()
 	}
 }
 
+void Elevator::Print()const
+{
+	cout << "topFloor: " << topFloor << "\tgroundFloor: " << groundFloor << "\tOnOff: " << OnOff << "\tworks: " << works << "\tposition: " << position << endl;
+}
+
 int main()
 {
 	Elevator el(1, 10);
 	el.onOff();
 	el.Call();
+	el.Print();
 }
